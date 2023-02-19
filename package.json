@@ -1,0 +1,35 @@
+{
+  "name": "wordle-helper-apis",
+  "version": "1.0.0",
+  "description": "APIs for the wordle helper app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --ignore 'client/*' --exec babel-node server/index.js",
+    "build": "cd client && npm install && npm run build",
+    "test": "jest"
+  },
+  "jest": { "testPathIgnorePatterns": ["client"] },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/wsu-web-programming/wordle-helper-apis.git"
+  },
+  "author": "Ruth Kurniawati",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/wsu-web-programming/wordle-helper-apis/issues"
+  },
+  "homepage": "https://github.com/wsu-web-programming/wordle-helper-apis#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.9",
+    "@babel/node": "^7.18.9",
+    "@babel/preset-env": "^7.18.9",
+    "babel-jest": "^28.1.3",
+    "jest": "^28.1.3",
+    "nodemon": "^2.0.19"
+  }
+}
