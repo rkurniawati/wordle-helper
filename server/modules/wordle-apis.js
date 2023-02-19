@@ -56,12 +56,12 @@ function getFilteredWords(words, excludeArray, rulesObject) {
 
 function getExpansionWords(words, excludeArray, rulesObject) {
     let exclude = new Set(excludeArray)
-    console.log(excludeArray)
+    //console.log(excludeArray)
     for(let ch in rulesObject) {
         exclude.add(ch)
         console.log("adding ", ch)
     }
-    console.log(exclude)
+    //console.log(exclude)
     let result = []
     for(let w of words) {
         let valid = true

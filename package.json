@@ -11,14 +11,14 @@
   "jest": { "testPathIgnorePatterns": ["client"] },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/wsu-web-programming/wordle-helper-apis.git"
+    "url": "git+ssh://git@github.com:rkurniawati/wordle-helper.git"
   },
   "author": "Ruth Kurniawati",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/wsu-web-programming/wordle-helper-apis/issues"
+    "url": "https://github.com/rkurniawati/wordle-helper/issues"
   },
-  "homepage": "https://github.com/wsu-web-programming/wordle-helper-apis#readme",
+  "homepage": "https://github.com/rkurniawati/wordle-helper#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
