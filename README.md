@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack React app that will help user solve [Wordle](https://www.nytimes.com/games/wordle/index.html). To use it, you can use a version of this app that is deployed in Heroku or you can clone this repo, then launch the backend and front-end part of the application. 
+This is a full-stack React app that will help user solve [Wordle](https://www.nytimes.com/games/wordle/index.html). To use it, you can use an [online version of this app](http://54.89.214.194:8081) or you can clone this repo, then launch the application using the steps listed below. 
 
 ## How to Use the Wordle Helper
 
@@ -12,7 +12,17 @@ This app is intended to be used as you play Wordle. Either type the words that y
 
 ## How to Run the Application Locally
 
-To run this application locally, you will need to have a reasonably recent NodeJS installed. Clone this repo, then follow the steps to launch the front-end and back-end services. 
+To run this application locally, you will need to have a NodeJS LTS (as of Feb 2023, v16.16.0) installed. Clone this repo, then follow these steps to launch the front-end and back-end services.
+
+```
+npm install 
+npm run build 
+npm start
+```
+
+## Running the Frontend and Backend Service separately
+
+The application is setup to serve the ReactJS front-end through ExpressJS server. The backend NodeJS source code is located in the `server` directory and the ReactJS front-end code is located in the `client` directory. Before you can do this, disable the static web pages in server/index.js.
 
 ### Launching the Backend Service
 
@@ -22,28 +32,31 @@ npm install
 npm start
 ```
 
-To test the backend to get filtered words:
+To test the backend APIs:
 
-```
-curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["l", "a", "t", "e", "r", "u", "n", "d", "c", "h", "p"], "rules": {"s":["!0"],"s":["!4"],"o":["!1"], "o" : ["2"]}}' http://localhost:8081/api/getFilteredWords
+ - getFilteredWords
 
-curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["r","e","s","i","n","l","o","t","h","g"], "rules": {"a":["!2","1"],"k":["3"],"y":["4"]}}' http://localhost:8081/api/getFilteredWords
+    ```
+    curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["l", "a", "t", "e", "r", "u", "n", "d", "c", "h", "p"], "rules": {"s":["!0"],"s":["!4"],"o":["!1"], "o" : ["2"]}}' http://localhost:8081/api/getFilteredWords
 
-curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["n", "t", "e", "s","a", "r", "i", "d","v", "u", "h", "m","f", "c", "k"], "rules": { "o": [ "1" ],"c": [ "!1", "!3", "0" ],"y": [ "4", "4" ]}}' http://localhost:8081/api/getFilteredWords
-```
+    curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["r","e","s","i","n","l","o","t","h","g"], "rules": {"a":["!2","1"],"k":["3"],"y":["4"]}}' http://localhost:8081/api/getFilteredWords
 
-To test the backend to get expanded words:
+    curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["n", "t", "e", "s","a", "r", "i", "d","v", "u", "h", "m","f", "c", "k"], "rules": { "o": [ "1" ],"c": [ "!1", "!3", "0" ],"y": [ "4", "4" ]}}' http://localhost:8081/api/getFilteredWords
+    ```
 
-```
-curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["r","e","s","i","n"], "rules": {"a":["!2","1"],"k":["3"],"y":["4"]}}' http://localhost:8081/api/getExpandedWords
+ - getExpandedWords
 
-curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["s","i","n", "l", "a", "t", "h"], "rules": { "r": [ "!0" ], "e": [ "!1" ], "o": [ "1" ] }}' http://localhost:8081/api/getExpandedWords
+    ```
+    curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["r","e","s","i","n"], "rules": {"a":["!2","1"],"k":["3"],"y":["4"]}}' http://localhost:8081/api/getExpandedWords
 
-```
+    curl --header "Content-Type: application/json" --request POST --data '{"exclude": ["s","i","n", "l", "a", "t", "h"], "rules": { "r": [ "!0" ], "e": [ "!1" ], "o": [ "1" ] }}' http://localhost:8081/api/getExpandedWords
+
+    ```
 
 ## Launching the React Frontend
 
 To build the front-end:
+
 ```
 cd client
 npm install
@@ -56,5 +69,5 @@ cd client
 npm build
 ```
 
-To serve the React front-end from node, enable the static web pages from the server/index.js.
+
 

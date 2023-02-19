@@ -12,7 +12,7 @@ const dictionary = loadDictionary()
 
 const app = express()
 
-// Have Node serve the files for our built React app
+// static pages: have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, '../client/build')));
 
 // if the dictionary is loaded, we can start accepting requests to /api/*
@@ -38,7 +38,7 @@ dictionary.then(dict => {
         res.json(words)
     })
 
-    // All other GET requests not handled before will return our React app
+    // static pages: all other GET requests not handled before will return our React app
     app.get('*', (req, res) => {
         res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
     });
