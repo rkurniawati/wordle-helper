@@ -1,4 +1,4 @@
-# Combined NodeJS backend and React front-end
+# Wordle Helper
 
 ## Overview
 
