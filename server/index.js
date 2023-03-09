@@ -6,7 +6,7 @@ import cors from 'cors'
 import { loadDictionary } from "./modules/dictionary.js"
 import { getFilteredWords, getExpansionWords } from "./modules/wordle-apis.js"
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8081;
 
 const dictionary = loadDictionary()
 
