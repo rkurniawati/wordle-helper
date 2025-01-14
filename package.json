@@ -4,7 +4,7 @@
   "description": "APIs for the wordle helper app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --ignore 'client/*' --exec babel-node server/index.js",
+    "start": "WORDLE_DICTIONARY=./server/data/official_wordle_all.txt nodemon --ignore 'client/*' --exec babel-node server/index.js",
     "build": "cd client && npm install && npm run build",
     "test": "jest"
   },

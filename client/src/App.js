@@ -3,12 +3,12 @@ import React, {useState, useEffect} from 'react'
 
 const WRONG_LETTER = '0' // grey
 const CORRECT_LETTER = '2' // green
-const WRONG_POSITON = '1' // orange/yello
+const WRONG_POSITON = '1' // orange/yellow
 
 // a known word is a word that has been tried before and has a known location markers (grey, green, orange boxes)
 // eg. 'berti', '00000' // if all letters are incorrect
-// eg. 'berti', '10000' // if 'b' is correct, but the rest are incorrect
-// eg. 'berti', '12200' // if 'b' is correct, 'e' and 'r' are needed but are in incorrect locations, the rest are incorrect. 
+// eg. 'berti', '20000' // if 'b' is correct, but the rest are incorrect
+// eg. 'berti', '21100' // if 'b' is correct, 'e' and 'r' are needed but are in incorrect locations, the rest are incorrect. 
 class KnownWord {
   constructor(word, locationMarkers) {
       this.word = word.toLowerCase();
@@ -176,7 +176,7 @@ function SecondWord(props) {
 const WordInput = ({wordNumber, setInitialWord}) => {
   const handleWordInput  = (e) => {
     let w = e.target.value
-    if (w.length == 5) {
+    if (w.length === 5) {
       let kw = new KnownWord(w, "00000")
       setInitialWord(kw)
       console.log(wordLabel + " word set to " + w);
@@ -187,9 +187,9 @@ const WordInput = ({wordNumber, setInitialWord}) => {
   }
 
   let wordLabel = "Next word"
-  if (wordNumber == 0) {
+  if (wordNumber === 0) {
     wordLabel = "Initial word"
-  } else if (wordNumber == 1) {
+  } else if (wordNumber === 1) {
     wordLabel = "Second word"
   }
   return (

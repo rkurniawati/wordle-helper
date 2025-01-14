@@ -7,7 +7,7 @@ function getFilteredWords(words, excludeArray, rulesObject) {
     for(let w of words) {
         let valid = true
 
-
+        // check if the word contains any of the excluded letters
         exclude.forEach(e => {
             // yellow and green override gray
             // only use the exclude rule if the letter is not in the rules
@@ -18,7 +18,13 @@ function getFilteredWords(words, excludeArray, rulesObject) {
             }
         })
 
+        // don't bother checking the rules if the word already failed the exclude test
         if (!valid) continue
+
+        // check the rules
+        // - if the rule is a number, the letter must be at that index
+        // - if the rule is "!number", the letter cannot be at that index
+
         // make sure to use the "of" key word in for iterator to get the values
         // if you don't specify keys, you'll get the (key, value) pairs
         for (let ch of rules.keys()) {
@@ -30,7 +36,7 @@ function getFilteredWords(words, excludeArray, rulesObject) {
                         valid = false
                         break
                     }
-                    // however, ch has to exist somehwere
+                    // however, ch has to exist somewhere
                     if (w.indexOf(ch) < 0) {
                         valid = false
                         break
@@ -54,12 +60,17 @@ function getFilteredWords(words, excludeArray, rulesObject) {
     return result;
 }
 
+// This is similar to getFilteredWords, but it only checks characters that have been tried
+// but not necessarily failed. This is useful for expanding the list of possible words
 function getExpansionWords(words, excludeArray, rulesObject) {
     let exclude = new Set(excludeArray)
     //console.log(excludeArray)
+
+    // add all the letters in the rulesObject to the exclude set
+    // these are characters that have been tried, but not necessarily failed
     for(let ch in rulesObject) {
         exclude.add(ch)
-        console.log("adding ", ch)
+        //console.log("adding ", ch)
     }
     //console.log(exclude)
     let result = []

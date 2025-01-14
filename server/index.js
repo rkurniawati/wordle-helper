@@ -7,8 +7,9 @@ import { loadDictionary } from "./modules/dictionary.js"
 import { getFilteredWords, getExpansionWords } from "./modules/wordle-apis.js"
 
 const PORT = process.env.PORT || 8081;
+const WORDLE_DICTIONARY = process.env.WORDLE_DICTIONARY || "./data/official_wordle_all.txt"
 
-const dictionary = loadDictionary()
+const dictionary = loadDictionary(WORDLE_DICTIONARY)
 
 const app = express()
 
