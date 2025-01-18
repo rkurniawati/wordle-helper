@@ -27,14 +27,12 @@ const App = () => {
 
   const handleCandidateClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const word = e.currentTarget.innerText;
-    console.log("Adding word " + word)
     setKnownWords([...knownWords, new KnownWord(word, "00000")]);
   }
 
   const handleLetterClick = (kw : KnownWord, index: number) => {
     let locationMarkers = kw.locationMarkers
     let currentMarker = parseInt(locationMarkers.substring(index, index+1))
-    console.log("Flipping marker " + currentMarker + " to " + ((currentMarker+1) % 3))
     kw.locationMarkers = locationMarkers.substring(0, index) + ((currentMarker+1) % 3) + locationMarkers.substring(index+1)
     setKnownWords([...knownWords])
   }
@@ -45,7 +43,6 @@ const App = () => {
         let rules : Rules = new Rules(knownWords)
         let words : string[] = await getWords(WORDLE_SERVER_API, rules)
         setSuggestedWords(words)
-        console.log("Setting suggestions to " + words.sort())
         setSuggestedWords(words.sort())
       }
     }
@@ -62,7 +59,6 @@ const App = () => {
     }
   }, [knownWords])
 
-  console.log("Current state: " + currentState)
   let displayedWords : JSX.Element;
   switch(currentState) {
     case AppState.InitialWords:

@@ -63,14 +63,11 @@ function getFilteredWords(words, excludeArray, rulesObject) {
 // but not necessarily failed. This is useful for expanding the list of possible words
 function getExpansionWords(words, excludeArray, rulesObject) {
     let exclude = new Set(excludeArray);
-    //console.log(excludeArray)
     // add all the letters in the rulesObject to the exclude set
     // these are characters that have been tried, but not necessarily failed
     for (let ch in rulesObject) {
         exclude.add(ch);
-        //console.log("adding ", ch)
     }
-    //console.log(exclude)
     let result = [];
     for (let w of words) {
         let valid = true;
