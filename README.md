@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack React app that will help user solve [Wordle](https://www.nytimes.com/games/wordle/index.html). To use it, you can use an [online version of this app](http://54.89.214.194:8081) or you can clone this repo, then launch the application using the steps listed below. 
+This is a full-stack React app that will help user solve [Wordle](https://www.nytimes.com/games/wordle/index.html). To use it, you can clone this repo, then launch the application using the steps listed below. 
 
 ## How to Use the Wordle Helper
 
@@ -12,12 +12,22 @@ This app is intended to be used as you play Wordle. Either type the words that y
 
 ## How to Run the Application Locally
 
-To run this application locally, you will need to have a NodeJS LTS (as of Feb 2023, v16.16.0) installed. Clone this repo, then follow these steps to launch the front-end and back-end services.
+To run this application locally, you will need to have a NodeJS LTS (as of Jan 2025, v22.13.0) installed. Clone this repo, then follow these steps to launch the front-end and back-end services.
 
 ```
 npm install 
 npm run build 
-npm start
+npm run wordle-helper
+```
+
+## Creating and Running using Docker 
+
+To build a docker image with the Wordle Helper app and run it:
+```
+npm install
+npm run build
+docker build . -t wordle_helper
+docker run -p 5081:5081 wordle_helper
 ```
 
 ## Running the Frontend and Backend Service separately
@@ -29,7 +39,7 @@ The application is setup to serve the ReactJS front-end through ExpressJS server
 To start the backend:
 ```
 npm install
-npm start
+npm start server
 ```
 
 To test the backend APIs:
@@ -59,15 +69,13 @@ To build the front-end:
 
 ```
 cd client
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 To create an optimized production build:
 ```
 cd client
-npm build
+yarn build
 ```
-
-
 

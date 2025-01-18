@@ -1,11 +1,13 @@
 {
-  "name": "wordle-helper-apis",
+  "name": "wordle-helper",
   "version": "1.0.0",
   "description": "APIs for the wordle helper app",
   "main": "index.js",
   "scripts": {
-    "start": "WORDLE_DICTIONARY=./server/data/official_wordle_all.txt nodemon --ignore 'client/*' --exec babel-node server/index.js",
-    "build": "cd client && npm install && npm run build",
+    "wordle-helper": "cd server && WORDLE_DICTIONARY=./server/data/official_wordle_all.txt npm run server",
+    "build-client": "cd client && yarn install && yarn build",
+    "build-server": "cd server && npm install && npm run build",
+    "build": "npm run build-client && npm run build-server",
     "test": "jest"
   },
   "jest": {
@@ -25,6 +27,7 @@
   "homepage": "https://github.com/rkurniawati/wordle-helper#readme",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "concurrently": "^9.1.2",
     "cors": "^2.8.5",
     "express": "^4.18.1"
   },
