@@ -26,10 +26,10 @@
   },
   "homepage": "https://github.com/rkurniawati/wordle-helper#readme",
   "dependencies": {
-    "body-parser": "^1.20.0",
+    "body-parser": "^1.20.4",
     "concurrently": "^9.1.2",
     "cors": "^2.8.5",
-    "express": "^4.18.1"
+    "express": "^4.22.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
